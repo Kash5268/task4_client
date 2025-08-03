@@ -1,0 +1,36 @@
+.register-page {
+  background-color: #f8f9fa;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 48px;
+  letter-spacing: 1px;
+}
+
+.form-side {
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.image-side {
+  background: url("../../assets/background-blur.png") no-repeat center center;
+  background-size: cover;
+  filter: blur(0px);
+}
+
+@media (max-width: 768px) {
+  .image-side {
+    display: none;
+  }
+  
+  .logo {
+    font-weight: 700;
+    font-size: 36px;
+    letter-spacing: 1px;
+    padding-left: 0;
+  }
+}
