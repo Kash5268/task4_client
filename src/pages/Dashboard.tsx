@@ -30,6 +30,7 @@ const Dashboard: React.FC<Props> = ({ user, setUser }) => {
   };
 
   useEffect(() => {
+    console.log(user)
     if (!user) navigate("/login");
     fetchUsers(user);
   }, [user]);
