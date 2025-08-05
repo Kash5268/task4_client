@@ -16,18 +16,22 @@ const Dashboard: React.FC<Props> = ({ user, setUser }) => {
   const [message, setMessage] = useState<string>("");
   const navigate = useNavigate();
 
-  const fetchUsers = () => {
+  const fetchUsers = (user: User | null) => {
     axios
-      .get<User[]>("https://task4-server-v8pg.onrender.com/api/users", {
-        withCredentials: true,
-      })
+      .post<User[]>(
+        "https://task4-server-v8pg.onrender.com/api/users",
+        { user },
+        {
+          withCredentials: true,
+        }
+      )
       .then((res) => setUsers(res.data))
       .catch(() => setUser(null));
   };
 
   useEffect(() => {
     if (!user) navigate("/login");
-    fetchUsers();
+    fetchUsers(user);
   }, [user]);
 
   const handleAction = async (action: "block" | "unblock" | "delete") => {
@@ -41,8 +45,10 @@ const Dashboard: React.FC<Props> = ({ user, setUser }) => {
       if (user && ids.includes(user.id) && action === "block") {
         setUser(null);
       } else {
-        fetchUsers();
-        setMessage(`${action.charAt(0).toUpperCase() + action.slice(1)} successful.`);
+        fetchUsers(user);
+        setMessage(
+          `${action.charAt(0).toUpperCase() + action.slice(1)} successful.`
+        );
         setSelected(new Set());
       }
     } catch {
