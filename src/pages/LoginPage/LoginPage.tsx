@@ -20,7 +20,7 @@ const LoginPage: React.FC<Props> = ({ setUser }) => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        " http://localhost:5000/api/login",
+        "https://task4-server-v8pg.onrender.com/api/login",
         { email, password },
         { withCredentials: true }
       );

@@ -10,7 +10,7 @@ const DashboardNavbar: React.FC<Props> = ({ setUser }) => {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    await axios.post("http://localhost:5000/api/logout", {}, { withCredentials: true });
+    await axios.post("https://task4-server-v8pg.onrender.com/api/logout", {}, { withCredentials: true });
     setUser(null);
     navigate("/login");
   };

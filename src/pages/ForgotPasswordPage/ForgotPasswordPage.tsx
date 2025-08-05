@@ -18,7 +18,7 @@ const ForgotPasswordPage: React.FC = () => {
     setError("");
 
     try {
-      await axios.patch("http://localhost:5000/api/forgot-password", { email, newPassword: password });
+      await axios.patch("https://task4-server-v8pg.onrender.com/api/forgot-password", { email, newPassword: password });
       setMessage("Password has been reset successfully.");
     } catch (err: any) {
       console.error(err);

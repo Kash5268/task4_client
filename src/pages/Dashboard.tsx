@@ -18,7 +18,7 @@ const Dashboard: React.FC<Props> = ({ user, setUser }) => {
 
   const fetchUsers = () => {
     axios
-      .get<User[]>("http://localhost:5000/api/users", {
+      .get<User[]>("https://task4-server-v8pg.onrender.com/api/users", {
         withCredentials: true,
       })
       .then((res) => setUsers(res.data))
@@ -34,7 +34,7 @@ const Dashboard: React.FC<Props> = ({ user, setUser }) => {
     try {
       const ids = Array.from(selected);
       await axios.patch(
-        `http://localhost:5000/api/users/${action}`,
+        `https://task4-server-v8pg.onrender.com/api/users/${action}`,
         { ids },
         { withCredentials: true }
       );

@@ -17,7 +17,7 @@ const RegisterPage: React.FC = () => {
     e.preventDefault();
     try {
       console.log(name, email, password);
-      await axios.post("http://localhost:5000/api/register", { name, email, password });
+      await axios.post("https://task4-server-v8pg.onrender.com/api/register", { name, email, password });
       setSuccess(true);
       setTimeout(() => navigate("/login"), 1500);
     } catch (err: any) {
